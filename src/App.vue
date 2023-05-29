@@ -29,7 +29,7 @@
 
 <script>
 import HeaderComp from './components/HeaderComp.vue'
-//import HomeGrid from './components/HomeGrid.vue'
+import HomeGrid from './components/HomeGrid.vue'
 import Places from './components/Places.vue'
 
 export default {
@@ -44,7 +44,7 @@ export default {
   },
   components : {
     HeaderComp,
-    //HomeGrid,
+    HomeGrid,
     Places
   }
 }
