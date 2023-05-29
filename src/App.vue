@@ -2,7 +2,7 @@
   <HeaderComp />
 
   <div class="content"  ref="content" @wheel="handleScroll">
-    <!--<div class="one">
+    <div class="one">
       <h1>
         Discover <br />
         Asia
@@ -16,7 +16,7 @@
       <button>EXPLORE</button>
     </div>
 
-    <HomeGrid />-->
+    <HomeGrid />
 
     <Places />
 

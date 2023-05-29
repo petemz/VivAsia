@@ -1,10 +1,10 @@
 <template>
     <div class="pop-places">
-        <!--<div class="intro">
+        <div class="intro">
             <p>POPULAR</p>
             <h2>Places</h2>
             <p>take a glimpse of asia's <br /> popular places to visit</p>
-        </div>-->
+        </div>
 
         <div class="place">
             <div class="place-main">
