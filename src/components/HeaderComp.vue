@@ -2,22 +2,18 @@
     <header>
         <div>
             <p>VIVASIA</p>
-
         </div>
     </header>
 </template>
 
 <script>
 export default {
-  name: 'HeaderComp',
-  props: {
-
-  }
+  name: 'HeaderComp'
 }
 </script>
 
 <style scoped>
   header {
-    background-color: inherit;
+    height: 40px;
   }
 </style>

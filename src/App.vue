@@ -1,6 +1,6 @@
 <template>
   <HeaderComp />
-
+    
   <div class="content"  ref="content" @wheel="handleScroll">
     <div class="one">
       <h1>
@@ -18,19 +18,40 @@
 
     <HomeGrid />
 
-    <Places />
-
-    <div class="four">
-    </div>
+    <PlacesComp />
   </div>
-  
-  <footer></footer>
+
+  <footer>
+    <div>
+    <img class="ft-pattern" src="./assets/image.png" alt="">
+    <img class="ft-pattern" src="./assets/image.png" alt="">
+    <img class="ft-pattern" src="./assets/image.png" alt="">
+    <img class="ft-pattern" src="./assets/image.png" alt="">
+    <img class="ft-pattern" src="./assets/image.png" alt="">
+    <img class="ft-pattern" src="./assets/image.png" alt="">
+    <img class="ft-pattern" src="./assets/image.png" alt="">
+    <img class="ft-pattern" src="./assets/image.png" alt="">
+    <img class="ft-pattern" src="./assets/image.png" alt="">
+    <img class="ft-pattern" src="./assets/image.png" alt="">
+    <img class="ft-pattern" src="./assets/image.png" alt="">
+    <img class="ft-pattern" src="./assets/image.png" alt="">
+    <img class="ft-pattern" src="./assets/image.png" alt="">
+    <img class="ft-pattern" src="./assets/image.png" alt="">
+    <img class="ft-pattern" src="./assets/image.png" alt="">
+    <img class="ft-pattern" src="./assets/image.png" alt="">
+    <img class="ft-pattern" src="./assets/image.png" alt="">
+    <img class="ft-pattern" src="./assets/image.png" alt="">
+    <img class="ft-pattern" src="./assets/image.png" alt="">
+    <img class="ft-pattern" src="./assets/image.png" alt="">
+    <img class="ft-pattern" src="./assets/image.png" alt="">
+    </div>
+  </footer>
 </template>
 
 <script>
 import HeaderComp from './components/HeaderComp.vue'
 import HomeGrid from './components/HomeGrid.vue'
-import Places from './components/Places.vue'
+import PlacesComp from './components/Places.vue'
 
 export default {
   name: 'App',
@@ -45,12 +66,19 @@ export default {
   components : {
     HeaderComp,
     HomeGrid,
-    Places
+    PlacesComp,
+
   }
 }
 </script>
 
 <style>
+.kkk {
+  width: 300px;
+  background-color: rgb(50, 18, 38);
+  max-width: 400px;
+  display: inline;
+}
 @font-face {
   font-family: 'jelani';
   src: url('./assets/Jelani-Font/jelani.woff') format('woff');
@@ -74,10 +102,8 @@ img {
   -moz-osx-font-smoothing: grayscale;
   width: 100%;
   height: 100%;
-  white-space: nowrap;
   color: #8b8b8b;
   background-color: rgb(0, 3, 17);
-
   display: flex;
   flex-direction: column;
 }
@@ -117,7 +143,35 @@ button {
 }
 
 footer {
-  height: 40px;
+  width: 100%;
+  display: flex;
+}
+
+footer div {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+}
+
+.ft-pattern {
+  width: 50px;
+  height: 50px;
+  margin: 5px 15px ;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ft-pattern {
+    animation: pattern-spin infinite 10s linear;
+  }
+}
+
+@keyframes pattern-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .content {
@@ -126,6 +180,7 @@ footer {
   height: 100%;
   display: flex;
   overflow-x: scroll;
+  margin-bottom: 50px;
 }
 
 .content::-webkit-scrollbar {
@@ -134,7 +189,6 @@ footer {
 
 .one, .three, .four{
   flex-shrink: 0;
-
   height: 100%;
   padding-right: 120px;
   padding-left: 120px;
@@ -161,17 +215,5 @@ footer {
   border: 2px solid;
   padding: 10px;
   width: max-content;
-}
-
-.three {
-  width: 600px;
-  height: 100%;
-  background-color: red;
-}
-
-.four {
-  width: 600px;
-  height: 100%;
-  background-color: yellow;
 }
 </style>
