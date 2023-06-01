@@ -1,56 +1,43 @@
 <template>
-  <HeaderComp />
+  <header>
+    <p>VivAsiA</p>
+  </header>
     
   <div class="content"  ref="content" @wheel="handleScroll">
-    <div class="one">
-      <h1>
-        Discover <br />
-        Asia
-      </h1>
-
-      <p>
-        take a glimpse of asia's <br />
-        bewitching attractions
-      </p>
-
-      <button>EXPLORE</button>
-    </div>
-
-    <HomeGrid />
+    <Home />
 
     <PlacesComp />
   </div>
 
   <footer>
     <div>
-    <img class="ft-pattern" src="./assets/image.png" alt="">
-    <img class="ft-pattern" src="./assets/image.png" alt="">
-    <img class="ft-pattern" src="./assets/image.png" alt="">
-    <img class="ft-pattern" src="./assets/image.png" alt="">
-    <img class="ft-pattern" src="./assets/image.png" alt="">
-    <img class="ft-pattern" src="./assets/image.png" alt="">
-    <img class="ft-pattern" src="./assets/image.png" alt="">
-    <img class="ft-pattern" src="./assets/image.png" alt="">
-    <img class="ft-pattern" src="./assets/image.png" alt="">
-    <img class="ft-pattern" src="./assets/image.png" alt="">
-    <img class="ft-pattern" src="./assets/image.png" alt="">
-    <img class="ft-pattern" src="./assets/image.png" alt="">
-    <img class="ft-pattern" src="./assets/image.png" alt="">
-    <img class="ft-pattern" src="./assets/image.png" alt="">
-    <img class="ft-pattern" src="./assets/image.png" alt="">
-    <img class="ft-pattern" src="./assets/image.png" alt="">
-    <img class="ft-pattern" src="./assets/image.png" alt="">
-    <img class="ft-pattern" src="./assets/image.png" alt="">
-    <img class="ft-pattern" src="./assets/image.png" alt="">
-    <img class="ft-pattern" src="./assets/image.png" alt="">
-    <img class="ft-pattern" src="./assets/image.png" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
     </div>
   </footer>
 </template>
 
 <script>
-import HeaderComp from './components/HeaderComp.vue'
-import HomeGrid from './components/HomeGrid.vue'
+import Home from './components/Home.vue'
 import PlacesComp from './components/Places.vue'
 
 export default {
@@ -59,53 +46,27 @@ export default {
     handleScroll(event) {  
       // Scroll horizontally to the right
       this.$refs.content.scrollLeft += event.deltaY;
-    
       event.preventDefault();
     }
   },
   components : {
-    HeaderComp,
-    HomeGrid,
+    Home,
     PlacesComp,
-
   }
 }
 </script>
 
 <style>
-.kkk {
-  width: 300px;
-  background-color: rgb(50, 18, 38);
-  max-width: 400px;
-  display: inline;
-}
 @font-face {
   font-family: 'jelani';
   src: url('./assets/Jelani-Font/jelani.woff') format('woff');
 }
-
 html,
 body {
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
-}
-
-img {
-  border-radius: 20px;
-}
-
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  width: 100%;
-  height: 100%;
-  color: #8b8b8b;
-  background-color: rgb(0, 3, 17);
-  display: flex;
-  flex-direction: column;
 }
 
 h1 {
@@ -131,6 +92,10 @@ h3 {
   font-size: 2em;
 }
 
+p {
+  font-size: 13px;
+}
+
 button {
   appearance: none;
   background-color: transparent;
@@ -142,29 +107,49 @@ button {
   cursor: pointer;
 }
 
+img {
+  border-radius: 20px;
+}
+
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  height: 100%;
+  color: #8b8b8b;
+  background-color: rgb(0, 3, 17);
+  display: flex;
+  flex-direction: column;
+}
+
+header p {
+  font-family: 'jelani', sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  margin: 5px 25px;
+  color: white;
+}
+
 footer {
   width: 100%;
   display: flex;
 }
-
 footer div {
   overflow: hidden;
   width: 100%;
   display: flex;
 }
-
-.ft-pattern {
+.footer-pattern {
   width: 50px;
   height: 50px;
   margin: 5px 15px ;
 }
-
 @media (prefers-reduced-motion: no-preference) {
-  .ft-pattern {
+  .footer-pattern {
     animation: pattern-spin infinite 10s linear;
   }
 }
-
 @keyframes pattern-spin {
   from {
     transform: rotate(0deg);
@@ -180,40 +165,11 @@ footer div {
   height: 100%;
   display: flex;
   overflow-x: scroll;
-  margin-bottom: 50px;
+  padding-bottom: 75px;
 }
 
 .content::-webkit-scrollbar {
   display: none;
 }
 
-.one, .three, .four{
-  flex-shrink: 0;
-  height: 100%;
-  padding-right: 120px;
-  padding-left: 120px;
-}
-
-.one {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.one h1 {
-  font-family: 'jelani', sans-serif;
-  font-size: 4em;
-  font-weight: 200;
-  line-height: 60px;
-}
-
-.one p {
-  font-size: 0.8em;
-}
-
-.one button {
-  border: 2px solid;
-  padding: 10px;
-  width: max-content;
-}
 </style>

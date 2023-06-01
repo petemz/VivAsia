@@ -1,13 +1,13 @@
 <template>
-    <div class="pop-places">
-        <div class="intro">
+    <div id="places" class="places">
+        <div class="places-intro">
             <p>POPULAR</p>
             <h2>Places</h2>
             <p>take a glimpse of asia's <br /> popular places to visit</p>
         </div>
 
         
-        <div class="places">
+        <div class="places-container">
             <div class="place" v-for="place in places" v-bind:key="place.name">
                 <div class="place-main">
                     <div class="location">
@@ -19,11 +19,11 @@
                 <div class="place-side">
                     <img class="side-img" :src="require('../assets/Places/' + place.sideImg)" alt="">
                     <div class="place-desc">
-                        <div >
-                            <img class="mid-pattern" src="../assets/image.png" alt="">
-                            <img class="mid-pattern" src="../assets/image.png" alt="">
+                        <div>
+                            <img class="mid-pattern" src="../assets/Home/pattern.png" alt="">
+                            <img class="mid-pattern" src="../assets/Home/pattern.png" alt="">
                         </div>
-                        <p>{{ place.description }}.</p>
+                        <p>{{ place.description }}</p>
                     </div>
                 </div>
             </div>
@@ -37,19 +37,19 @@ export default {
     data() {
         return {
             places: [
-                {name: 'Fuji', country: 'Japan', description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque ipsam quisquam commodi dicta expedita dolores id obcaecati consequuntur doloremque deserunt magnam repellat, quis quo adipisci perferendis ullam porro, vel ad. Lorem ipsum dolor sit amet consectetur adipisicing',
+                {name: 'Fuji', country: 'Japan', description: 'Fuji, Japan\'s highest mountain, is a captivating tourist attraction known for its symmetrical beauty. Climbing its majestic peak offers breathtaking views, while the surrounding Fuji Five Lakes region provides cultural immersion and scenic exploration.',
                 mainImg: 'fuji-main.jpg', sideImg: 'fuji-side.jpg'
                 },
-                {name: 'Angkor Wat', country: 'Cambodia', description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque ipsam quisquam commodi dicta expedita dolores id obcaecati consequuntur doloremque deserunt magnam repellat, quis quo adipisci perferendis ullam porro, vel ad. Lorem ipsum dolor sit amet consectetur adipisicing',
+                {name: 'Angkor Wat', country: 'Cambodia', description: 'Angkor Wat is a temple complex in Cambodia. It is the largest religious monument in the world and is a UNESCO World Heritage Site. The temple was built in the 12th century by King Suryavarman II and is dedicated to the Hindu god Vishnu.',
                 mainImg: 'angkor-main.jpg', sideImg: 'angkor-side.jpg'
                 },
-                {name: 'Bali', country: 'Indonesia', description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque ipsam quisquam commodi dicta expedita dolores id obcaecati consequuntur doloremque deserunt magnam repellat, quis quo adipisci perferendis ullam porro, vel ad. Lorem ipsum dolor sit amet consectetur adipisicing',
+                {name: 'Bali', country: 'Indonesia', description: 'Bali, an Indonesian paradise, enchants visitors with its breathtaking beaches, vibrant culture, and lush landscapes. From ancient temples to vibrant markets and world-class surfing spots, Bali offers a blend of relaxation and adventure that leaves a lasting impression on all who visit.',
                 mainImg: 'bali-main.jpg', sideImg: 'bali-side.jpg'
                 },
-                {name: 'Phuket', country: 'Thailand', description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque ipsam quisquam commodi dicta expedita dolores id obcaecati consequuntur doloremque deserunt magnam repellat, quis quo adipisci perferendis ullam porro, vel ad. Lorem ipsum dolor sit amet consectetur adipisicing',
+                {name: 'Phuket', country: 'Thailand', description: 'Phuket, Thailand\'s tropical gem, beckons with its stunning beaches, crystal-clear waters, and vibrant nightlife. Whether you seek relaxation on the palm-fringed shores or adventure in the lush rainforests, Phuket offers an unforgettable escape into paradise.',
                 mainImg: 'phuket-main.jpg', sideImg: 'phuket-side.jpg'
                 },
-                {name: 'Kuala Lumpur', country: 'Malaysia', description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque ipsam quisquam commodi dicta expedita dolores id obcaecati consequuntur doloremque deserunt magnam repellat, quis quo adipisci perferendis ullam porro, vel ad. Lorem ipsum dolor sit amet consectetur adipisicing',
+                {name: 'Kuala Lumpur', country: 'Malaysia', description: 'Kuala Lumpur, Malaysia\'s bustling capital, captivates with its impressive skyline, vibrant street life, and rich cultural heritage. From towering skyscrapers to mouthwatering cuisine and lively markets, Kuala Lumpur offers an unforgettable fusion of modernity and tradition.',
                 mainImg: 'kuala-main.jpg', sideImg: 'kuala-side.jpg'
                 }
             ]
@@ -59,42 +59,22 @@ export default {
 </script>
 
 <style scoped>
-    .mid-pattern {
-        width: 35px;
-    }
-
-    @media (prefers-reduced-motion: no-preference) {
-        .mid-pattern {
-            animation: pattern-spin infinite 10s linear;
-        }
-    }
-
-    @keyframes pattern-spin {
-        from {
-            transform: rotate(0deg);
-        }
-        to {
-            transform: rotate(360deg);
-        }
-    }
-    .pop-places {
+    .places {
         height: 100%;
-        padding-right: 120px;
-        padding-left: 120px;
+        padding: 0 110px;
         width: max-content;
         display: flex;
-        align-items: center;
     }
 
-    .intro {
+    .places-intro {
         height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        margin-right: 65px;
+        margin-right: 60px;
     }
 
-    .places {
+    .places-container {
         display: flex;
     }
 
@@ -109,35 +89,25 @@ export default {
     .place-main {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-    }
-
-    .place-main img {
-        width: 310px;
     }
 
     .location {
         margin-bottom: 20px;
     }
-
     .location p {
-        font-size: 12px;
         letter-spacing: 6px;
-        margin: 5px;
+        margin: 5px auto;
     }
 
     .place-side {
         display: grid;
-        align-items: center;
         gap: 10px;
-        height: max-content;
-        font-size: 13px;
         line-height: 20px;
+        margin-top: 20px;
     }
 
-    .place-side .side-img {
+    .side-img {
        width: 200px;
-       margin-bottom: 0px;
     }
 
     .place-desc {
@@ -147,9 +117,20 @@ export default {
         place-items: center;
     }
 
-    .place-pattern {
-        width: 40px;
-        border-radius: 0px;
-        height: max-content;
+    .mid-pattern {
+        width: 35px;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+        .mid-pattern {
+            animation: pattern-spin infinite 10s linear;
+        }
+    }
+    @keyframes pattern-spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
     }
 </style>
