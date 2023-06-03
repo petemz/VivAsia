@@ -17,7 +17,7 @@
                 <div class="home-side-top">
                     <div class="home-side-sub">    
                         <img class="home-two" src="../assets/Home/home-two.jpg" alt="photo of sushi in a wooden bowl">             
-                        <img class="mid-pattern" src="../assets/Home/pattern.png" alt="">
+                        <img class="mid-pattern" src="../assets/Home/pattern.jpg" alt="">
                     </div>
 
                     <img class="home-three" src="../assets/Home/home-three.jpg" alt="">

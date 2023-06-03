@@ -20,8 +20,8 @@
                     <img class="side-img" :src="require('../assets/Places/' + place.sideImg)" alt="">
                     <div class="place-desc">
                         <div>
-                            <img class="mid-pattern" src="../assets/Home/pattern.png" alt="">
-                            <img class="mid-pattern" src="../assets/Home/pattern.png" alt="">
+                            <img class="mid-pattern" src="../assets/Home/pattern.jpg" alt="">
+                            <img class="mid-pattern" src="../assets/Home/pattern.jpg" alt="">
                         </div>
                         <p>{{ place.description }}</p>
                     </div>

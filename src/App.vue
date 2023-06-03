@@ -2,36 +2,38 @@
   <header>
     <p>VivAsiA</p>
   </header>
-    
-  <div class="content"  ref="content" @wheel="handleScroll">
+
+  <div class="content skew-element"  ref="content" @wheel="handleScroll">
     <Home />
 
     <PlacesComp />
+
+    <Facts />
   </div>
 
   <footer>
     <div>
-      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
-      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
-      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
-      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
-      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
-      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
-      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
-      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
-      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
-      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
-      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
-      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
-      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
-      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
-      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
-      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
-      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
-      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
-      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
-      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
-      <img class="footer-pattern" src="./assets/Home/pattern.png" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
+      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
     </div>
   </footer>
 </template>
@@ -39,19 +41,41 @@
 <script>
 import Home from './components/Home.vue'
 import PlacesComp from './components/Places.vue'
+import Facts from './components/Facts.vue'
 
 export default {
   name: 'App',
   methods: {
-    handleScroll(event) {  
+    handleScroll(event) {
+      this.isScrolling = true;
+      clearTimeout(this.scrollTimeout);
+
+      let scrollTop = event.deltaY;
+      let contentElement = this.$refs.content;
+      let maxScrollLeft = contentElement.scrollWidth - contentElement.clientWidth;
+      let skewAngle = scrollTop * 0;
+
+      if (!(contentElement.scrollLeft === 0 || Math.round(contentElement.scrollLeft) === maxScrollLeft)) {
+        skewAngle = -scrollTop * 0.25; // Adjust the multiplier to control the skew intensity
+      }
+
+      let skewValue = 'skewX(' + skewAngle + 'deg)';
+      document.querySelector('.skew-element').style.transform = skewValue;
+
       // Scroll horizontally to the right
-      this.$refs.content.scrollLeft += event.deltaY;
+      contentElement.scrollLeft += event.deltaY;
       event.preventDefault();
-    }
+
+      this.scrollTimeout = setTimeout(() => {
+        this.isScrolling = false;
+        document.querySelector('.skew-element').style.transform = 'none';
+      }, 200);
+    },
   },
   components : {
     Home,
     PlacesComp,
+    Facts,
   }
 }
 </script>
@@ -92,10 +116,6 @@ h3 {
   font-size: 2em;
 }
 
-p {
-  font-size: 13px;
-}
-
 button {
   appearance: none;
   background-color: transparent;
@@ -121,6 +141,8 @@ img {
   background-color: rgb(0, 3, 17);
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
+  font-size: 13px;
 }
 
 header p {
@@ -143,7 +165,7 @@ footer div {
 .footer-pattern {
   width: 50px;
   height: 50px;
-  margin: 5px 15px ;
+  margin: 5px 15px;
 }
 @media (prefers-reduced-motion: no-preference) {
   .footer-pattern {
@@ -164,12 +186,17 @@ footer div {
   max-width: max-content;
   height: 100%;
   display: flex;
+  align-items: center;
   overflow-x: scroll;
-  padding-bottom: 75px;
+  padding-bottom: 50px;
 }
 
 .content::-webkit-scrollbar {
   display: none;
 }
 
+.skew-element {
+  transition: transform 0.15s ease-out;
+	will-change: transform;
+}
 </style>
