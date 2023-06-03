@@ -149,7 +149,7 @@ header p {
   font-family: 'jelani', sans-serif;
   font-size: 30px;
   font-weight: 400;
-  margin: 5px 25px;
+  margin: 15px 25px;
   color: white;
 }
 

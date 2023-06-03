@@ -217,9 +217,7 @@
 }
 
 #adeola {
-    color: white;
     font-style: italic;
-    text-decoration: underline green;
-    text-decoration-style: wavy;
+    font-size: 13px;
 }
 </style>
