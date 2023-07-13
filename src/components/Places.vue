@@ -6,7 +6,6 @@
             <p>take a glimpse of asia's <br /> popular places to visit</p>
         </div>
 
-        
         <div class="places-container">
             <div class="place" v-for="place in places" v-bind:key="place.name">
                 <div class="place-main">

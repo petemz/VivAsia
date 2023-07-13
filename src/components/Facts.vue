@@ -5,36 +5,11 @@
         </div>
 
         <div class="facts-container">
-            <div class="fact fact-1">
-                <p>Asia is the largest continent on Earth, covering about 30% of the land area.</p>
+            <div class="fact" :class="`fact-${index + 1}`" v-for="(fact, index) in facts" :key="index">
+                <p>{{ fact }}</p>
             </div>
-            <div class="fact fact-2">
-                <p>Asia is home to over 4.6 billion people, representing about 60% of the global population.</p>
-            </div>
-            <div class="fact fact-3">
-                <p>Asia is home to some of the world's most beautiful and diverse landscapes, including mountains, deserts, forests, and beaches.</p>
-            </div>
-            <div class="fact fact-4">
-                <p>Asia is a major tourist destination, with millions of visitors each year.</p>
-            </div>
-            <div class="fact fact-5">
-                <p>Asia is a major tourist destination, with millions of visitors each year.</p>
-            </div>
-            <div class="fact fact-6">
-                <p>Asia is a continent of great contrast, from the bustling cities of Tokyo and Shanghai to the tranquil villages of rural Laos.</p>
-            </div>
-            <div class="fact fact-7">
-                <p>Asia is home to some of the world's oldest civilizations, including China, India, and Japan.</p>
-            </div>
-            <img class="pattern pt-1" src="../assets/Home/pattern.jpg" alt="">
-            <img class="pattern pt-2" src="../assets/Home/pattern.jpg" alt="">
-            <img class="pattern pt-3" src="../assets/Home/pattern.jpg" alt="">
-            <img class="pattern pt-4" src="../assets/Home/pattern.jpg" alt="">
-            <img class="pattern pt-5" src="../assets/Home/pattern.jpg" alt="">
-            <img class="pattern pt-6" src="../assets/Home/pattern.jpg" alt="">
-            <img class="pattern pt-7" src="../assets/Home/pattern.jpg" alt="">
-            <img class="pattern pt-8" src="../assets/Home/pattern.jpg" alt="">
-            <img class="pattern pt-9" src="../assets/Home/pattern.jpg" alt="">
+            
+            <img class="pattern" :class="`pt-${index + 1}`" v-for="(index) in 9" :key="index" src="../assets/Home/pattern.jpg" alt="">
         </div>
         
         <div class="facts-outro">
@@ -47,6 +22,24 @@
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            facts: [
+                'Asia is the largest continent on Earth, covering about 30% of the land area.',
+                'Asia is home to over 4.6 billion people, representing about 60% of the global population.',
+                'Asia is home to some of the world\'s most beautiful and diverse landscapes, including mountains, deserts, forests, and beaches.',
+                'Asia is a major tourist destination, with millions of visitors each year.',
+                'Asia is a major tourist destination, with millions of visitors each year.',
+                'Asia is a continent of great contrast, from the bustling cities of Tokyo and Shanghai to the tranquil villages of rural Laos.',
+                'Asia is home to some of the world\'s oldest civilizations, including China, India, and Japan.'
+            ]
+        }
+    }
+}
+</script>
 
 <style scoped>
 .facts {
@@ -143,7 +136,7 @@
     transform: rotate(360deg);
   }
 }
-
+/*pt is pattern*/
 .pt-1 {
     top: 30px;
     left: 30px;
