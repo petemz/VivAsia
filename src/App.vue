@@ -13,27 +13,7 @@
 
   <footer>
     <div>
-      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
-      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
-      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
-      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
-      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
-      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
-      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
-      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
-      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
-      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
-      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
-      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
-      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
-      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
-      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
-      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
-      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
-      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
-      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
-      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
-      <img class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
+      <img v-for="(index) in 21" :key="index" class="footer-pattern" src="./assets/Home/pattern.jpg" alt="">
     </div>
   </footer>
 </template>
@@ -50,13 +30,17 @@ export default {
       this.isScrolling = true;
       clearTimeout(this.scrollTimeout);
 
-      let scrollTop = event.deltaY;
+      let scroll = event.deltaY;
       let contentElement = this.$refs.content;
-      let maxScrollLeft = contentElement.scrollWidth - contentElement.clientWidth;
-      let skewAngle = scrollTop * 0;
 
-      if (!(contentElement.scrollLeft === 0 || Math.round(contentElement.scrollLeft) === maxScrollLeft)) {
-        skewAngle = -scrollTop * 0.25; // Adjust the multiplier to control the skew intensity
+      let scrollRight = contentElement.scrollWidth - contentElement.clientWidth - contentElement.scrollLeft;
+      let maxScrollLeft = contentElement.scrollWidth - contentElement.clientWidth;
+      let skewAngle = scroll * 0;
+
+      console.log(scrollRight)
+
+      if (!(contentElement.scrollLeft === 0 || Math.round(contentElement.scrollLeft) === maxScrollLeft) && (Math.floor(scrollRight))) {
+        skewAngle = -scroll > 250 || -scroll < -250 ? 250 * 0.25 : scroll * 0.25; // Adjust the multiplier to control the skew intensity
       }
 
       let skewValue = 'skewX(' + skewAngle + 'deg)';

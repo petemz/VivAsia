@@ -181,7 +181,7 @@ export default {
     font-size: 14px;
     line-height: 17px;
     margin-left: 90px;
-    margin-right: 1100px;
+    margin-right: 800px;
     padding-top: 170px;
 }
 
